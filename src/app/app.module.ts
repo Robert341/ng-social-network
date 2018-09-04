@@ -8,10 +8,12 @@ import { HttpModule } from '@angular/http';
 // components
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
-import { MainComponent } from './main/main.component';
-import { ProfileComponent } from './profile/profile.component';
-import { LoadingComponent } from './loading/loading.component';
 import { HeaderComponent } from './header/header.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { MainComponent } from './main/main.component';
+import { LoadingComponent } from './loading/loading.component';
+import { ProfileComponent } from './profile/profile.component';
 
 // services
 import { HttpService } from './http.service';
@@ -21,10 +23,12 @@ import { HttpService } from './http.service';
   declarations: [
     AppComponent,
     LandingComponent,
+    HeaderComponent,
+    RegisterFormComponent,
+    LoginFormComponent,
     MainComponent,
-    ProfileComponent,
     LoadingComponent,
-    HeaderComponent
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

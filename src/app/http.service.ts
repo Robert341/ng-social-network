@@ -4,8 +4,8 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class HttpService {
-  headers = new Headers({'Content-Type': 'application/json'});
-  options = new RequestOptions({headers: this.headers});
+  headers = new Headers({ 'Content-Type': 'application/json' });
+  options = new RequestOptions({ headers: this.headers });
 
   // urls
 
