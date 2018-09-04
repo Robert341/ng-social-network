@@ -1,0 +1,56 @@
+<form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+  <div class="form-group">
+    <label>First name
+      <input type="text" class="form-control" formControlName="firstName">
+    </label>
+    <div *ngIf="registerForm.controls['firstName'].hasError('required') && registerForm.controls['firstName'].dirty" class="alert alert-danger">
+      First name can't be empty
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Last name
+      <input type="text" class="form-control" formControlName="lastName">
+    </label>
+    <div *ngIf="registerForm.controls['lastName'].hasError('required')  && registerForm.controls['lastName'].dirty" class="alert alert-danger">
+      Last name can't be empty
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Date of birth
+      <input type="date" class="form-control" formControlName="dateOfBirth">
+    </label>
+  </div>
+  <div class="form-group">
+    <label>Male
+      <input type="radio" class="form-control" value="male" formControlName="gender">
+    </label>
+    <label>Female
+      <input type="radio" class="form-control" value="female" formControlName="gender">
+    </label>
+  </div>
+  <div class="form-group">
+    <label>E-mail
+      <input type="text" class="form-control" formControlName="email">
+    </label>
+    <div *ngIf="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].dirty" class="alert alert-danger">
+      E-mail can't be empty
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Password
+      <input type="password" class="form-control" formControlName="pass">
+    </label>
+    <div *ngIf="registerForm.controls['pass'].hasError('required') && registerForm.controls['pass'].dirty" class="alert alert-danger">
+      Password can't be empty
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Re-Enter
+      <input type="password" class="form-control" formControlName="rePass">
+    </label>
+    <div *ngIf="registerForm.controls['rePass'].hasError('required') && registerForm.controls['rePass'].dirty" class="alert alert-danger">
+      Repeat password
+    </div>
+  </div>
+  <button type="submit" [disabled]="registerForm.invalid || registerForm.value.pass !== registerForm.value.rePass" class="btn btn-primary">Sign up</button>
+</form>

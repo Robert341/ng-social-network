@@ -1,1 +1,14 @@
-<app-register-form></app-register-form>
+<div *ngIf="pageLoading">
+  <app-loading></app-loading>
+</div>
+<div *ngIf="!pageLoading">
+  <header>
+    <app-header></app-header>
+  </header>
+
+  <main>
+    <section>
+      <app-register-form></app-register-form>
+    </section>
+  </main>
+</div>
