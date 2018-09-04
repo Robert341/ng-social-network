@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node index",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -21,8 +21,17 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "async": "^2.6.1",
+    "body-parser": "^1.18.3",
+    "cookie-session": "^2.0.0-beta.3",
     "core-js": "^2.4.1",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-fileupload": "^0.4.0",
+    "fs": "0.0.1-security",
+    "mongoose": "^5.2.12",
     "rxjs": "^5.5.6",
+    "socket.io": "^2.1.1",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
