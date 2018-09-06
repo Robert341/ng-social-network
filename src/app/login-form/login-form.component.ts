@@ -43,10 +43,8 @@ export class LoginFormComponent implements OnInit {
         } else if (res.message === 'SERVER_ERROR') {
           window.alert('Server error! Could not log in.');
         } else if (res.message === 'NO_SUCH_USER') {
-          console.log('no such user');
           this.loginError.noSuchUser = this.loginForm.value.email;
         } else if (res.message === 'WRONG_PASSWORD') {
-          console.log('wrong password');
           this.loginError.wrongPassword = this.loginForm.value.pass;
         } else {
           window.alert('Unhandled error!');
