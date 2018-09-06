@@ -1,24 +1,39 @@
 <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
   <div class="form-group">
     <label>First name
-      <input type="text" class="form-control" formControlName="firstName">
+      <input type="text" class="form-control" [ngClass]="{ 'in-focus': inFocus.firstName }" formControlName="firstName" (focus)="inFocus.firstName = true" (blur)="inFocus.firstName = false">
     </label>
-    <div *ngIf="registerForm.controls['firstName'].hasError('required') && registerForm.controls['firstName'].dirty" class="alert alert-danger">
-      First name can't be empty
+    <div *ngIf="formChecked" class="error-message">
+      <span *ngIf="registerForm.controls['firstName'].hasError('required')">
+        First name can't be empty!
+      </span>
+      <span *ngIf="registerForm.controls['firstName'].hasError('pattern')">
+        Incorrect first name!
+      </span>
     </div>
   </div>
   <div class="form-group">
     <label>Last name
-      <input type="text" class="form-control" formControlName="lastName">
+      <input type="text" class="form-control" formControlName="lastName" [ngClass]="{ 'in-focus': inFocus.lastName }">
     </label>
-    <div *ngIf="registerForm.controls['lastName'].hasError('required')  && registerForm.controls['lastName'].dirty" class="alert alert-danger">
-      Last name can't be empty
+    <div *ngIf="formChecked">
+      <span *ngIf="registerForm.controls['lastName'].hasError('required')" class="alert alert-danger">
+        Last name can't be empty!
+      </span>
+      <span *ngIf="registerForm.controls['lastName'].hasError('pattern')" class="alert alert-danger">
+        Incorrect last name!
+      </span>
     </div>
   </div>
   <div class="form-group">
     <label>Date of birth
       <input type="date" class="form-control" formControlName="dateOfBirth">
     </label>
+    <div *ngIf="formChecked">
+      <span *ngIf="registerForm.controls['dateOfBirth'].hasError('required')" class="alert alert-danger">
+        Date can't be empty!
+      </span>
+    </div>
   </div>
   <div class="form-group">
     <label>Male
@@ -27,30 +42,50 @@
     <label>Female
       <input type="radio" class="form-control" value="female" formControlName="gender">
     </label>
+    <div *ngIf="formChecked">
+      <span *ngIf="registerForm.controls['gender'].hasError('required')" class="alert alert-danger">
+        Gender can't be empty!
+      </span>
+    </div>
   </div>
   <div class="form-group">
     <label>E-mail
-      <input type="text" class="form-control" formControlName="email">
+      <input type="text" class="form-control" formControlName="email" [ngClass]="{ 'in-focus': inFocus.email }">
     </label>
-    <div *ngIf="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].dirty" class="alert alert-danger">
-      E-mail can't be empty
+    <div *ngIf="formChecked">
+      <span *ngIf="registerForm.controls['email'].hasError('required')" class="alert alert-danger">
+        E-mail can't be empty!
+      </span>
+      <span *ngIf="registerForm.controls['email'].hasError('pattern')" class="alert alert-danger">
+        Incorrect e-mail!
+      </span>
     </div>
   </div>
   <div class="form-group">
     <label>Password
-      <input type="password" class="form-control" formControlName="pass">
+      <input type="password" class="form-control" formControlName="pass" [ngClass]="{ 'in-focus': inFocus.pass }">
     </label>
-    <div *ngIf="registerForm.controls['pass'].hasError('required') && registerForm.controls['pass'].dirty" class="alert alert-danger">
-      Password can't be empty
+    <div *ngIf="formChecked">
+      <span *ngIf="registerForm.controls['pass'].hasError('required')" class="alert alert-danger">
+        Password can't be empty!
+      </span>
+      <span *ngIf="registerForm.controls['pass'].hasError('pattern')" class="alert alert-danger">
+        Incorrect password!
+      </span>
     </div>
   </div>
   <div class="form-group">
     <label>Re-Enter
-      <input type="password" class="form-control" formControlName="rePass">
+      <input type="password" class="form-control" formControlName="rePass" [ngClass]="{ 'in-focus': inFocus.rePass }">
     </label>
-    <div *ngIf="registerForm.controls['rePass'].hasError('required') && registerForm.controls['rePass'].dirty" class="alert alert-danger">
-      Repeat password
+    <div *ngIf="formChecked">
+      <span *ngIf="registerForm.controls['rePass'].hasError('required')" class="alert alert-danger">
+        Repeat password!
+      </span>
+      <span *ngIf="registerForm.value.pass !== registerForm.value.rePass && !registerForm.controls['rePass'].hasError('required')" class="alert alert-danger">
+        Passwords don't match!
+      </span>
     </div>
   </div>
-  <button type="submit" [disabled]="registerForm.invalid || registerForm.value.pass !== registerForm.value.rePass" class="btn btn-primary">Sign up</button>
+  <button type="submit" class="btn btn-primary">Sign up</button>
 </form>
