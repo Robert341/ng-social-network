@@ -45,16 +45,13 @@ export class RegisterFormComponent implements OnInit {
     this.formChecked = true;
 
     if (this.registerForm.valid && this.registerForm.value.pass === this.registerForm.value.rePass) {
-      console.log(this.registerForm.value);
+      this._httpService.register(this.registerForm.value).subscribe(res => {
+        if (res.success === true) {
+          window.location.replace('/feed');
+        } else {
+          window.location.reload();
+        }
+      });
     }
-    /*
-    this._userService.register(this.registerForm.value).subscribe(resRegisterAttempt => {
-      if (resRegisterAttempt.success === true) {
-        window.location.replace('/feed');
-      } else {
-        window.location.reload();
-      }
-    });
-    */
   }
 }

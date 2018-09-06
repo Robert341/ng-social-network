@@ -8,6 +8,7 @@ const userSchema = new Schema({
   gender: String,
   email: String,
   pass: String,
+  profPicAddress: String,
   friendRequestsOut: [],
   friendRequestsIn: [],
   friends: []

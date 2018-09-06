@@ -8,6 +8,7 @@ export class User {
   gender: string;
   email: string;
   pass: string;
+  profPicAddress: string;
   friendRequestsOut: string[];
   friendRequestsIn: string[];
   friends: string[];
