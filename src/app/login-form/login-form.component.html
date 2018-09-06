@@ -13,6 +13,9 @@
        <span *ngIf="loginForm.controls['email'].hasError('pattern')" class="error-message">
         Incorrect e-mail!
       </span>
+      <span *ngIf="noSuchEmail" class="error-message">
+        No such e-mail!
+      </span>
     </span>
   </div>
   <div class="input-group">

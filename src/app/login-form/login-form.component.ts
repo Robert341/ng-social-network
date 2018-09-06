@@ -16,6 +16,10 @@ export class LoginFormComponent implements OnInit {
     pass: false
   };
 
+  // other errors
+  noSuchEmail = false;
+  wrongPassword = false;
+
   constructor(private _formBuilder: FormBuilder, private _httpService: HttpService) { }
 
   ngOnInit() {
@@ -31,21 +35,24 @@ export class LoginFormComponent implements OnInit {
 
   onLogin() {
     this.formChecked = true;
-/*
+
     if (this.loginForm.valid) {
-      this._httpService.register(this.registerForm.value).subscribe(res => {
+      this._httpService.login(this.loginForm.value).subscribe(res => {
         if (res.success === true) {
           window.location.replace('/main');
         } else if (res.message === 'SERVER_ERROR') {
-          window.alert('Server error! Could not register user.');
-        } else if (res.message === 'EMAIL_REGISTERED') {
-          window.alert('User with this e-mail already exists!');
+          window.alert('Server error! Could not log in.');
+        } else if (res.message === 'NO_SUCH_USER') {
+          console.log('no such email');
+          this.noSuchEmail = true;
+        } else if (res.message === 'WRONG_PASSWORD') {
+          console.log('wrong password');
+          this.wrongPassword = true;
         } else {
           window.alert('Unhandled error!');
         }
       });
     }
-    */
   }
 
 }

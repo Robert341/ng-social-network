@@ -10,12 +10,17 @@ export class HttpService {
 
   // urls
   private _registerUrl = '/api/register';
+  private _loginUrl = '/api/login';
 
   constructor(private _http: Http) { }
 
   // functions
   register(user: User) {
     return this._http.post(this._registerUrl, JSON.stringify(user), this.options)
+      .map((response: Response) => response.json());
+  }
+  login(user: User) {
+    return this._http.post(this._loginUrl, JSON.stringify(user), this.options)
       .map((response: Response) => response.json());
   }
 }

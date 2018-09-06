@@ -20,6 +20,7 @@ mongoose.connect(db, { useNewUrlParser: true }, function(err) {
 const SERVER_ERROR = 'SERVER_ERROR',
   EMAIL_REGISTERED = 'EMAIL_REGISTERED',
   NO_SUCH_USER = 'NO_SUCH_USER',
+  WRONG_PASSWORD = 'WRONG_PASSWORD',
   NO_SESSION = 'NO_SESSION';
 
 // routes
@@ -52,6 +53,30 @@ router.post('/register', function(req, res) {
 
             req.session.user_id = user._id;
             res.json({ success: true });
+        }
+      });
+    }
+  });
+});
+
+router.post('/login', function(req, res) {
+  const email = req.body.email,
+    pass = req.body.pass;
+
+  User.find({ email: email }).exec(function(err, users) {
+    if (err) {
+      res.json({ success: false, message: SERVER_ERROR });
+    } else if (users.length === 0) {
+      res.json({ success: false, message: NO_SUCH_USER });
+    } else {
+      User.findOne({ email: email, pass: pass }).exec(function(err, user) {
+        if (err) {
+          res.json({ success: false, message: SERVER_ERROR });
+        } else if(user === null) {
+          res.json({ success: false, message: WRONG_PASSWORD });
+        } else {
+          req.session.user_id = user._id;
+          res.json({ success: true });
         }
       });
     }
