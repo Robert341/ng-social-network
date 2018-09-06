@@ -52,14 +52,6 @@
   color: #900000;
 }
 
-.register-btn-box {
-  display: inline-block;
-  text-align: center;
-  padding: 10px 100px;
-
-  border: 1px solid red;
-}
-
 .register-btn {
   width: 90px;
   height: 35px;
