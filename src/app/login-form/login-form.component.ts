@@ -15,10 +15,10 @@ export class LoginFormComponent implements OnInit {
     email: false,
     pass: false
   };
-
-  // other errors
-  noSuchEmail = false;
-  wrongPassword = false;
+  loginError = {
+    noSuchUser: '',
+    wrongPassword: ''
+  };
 
   constructor(private _formBuilder: FormBuilder, private _httpService: HttpService) { }
 
@@ -43,11 +43,11 @@ export class LoginFormComponent implements OnInit {
         } else if (res.message === 'SERVER_ERROR') {
           window.alert('Server error! Could not log in.');
         } else if (res.message === 'NO_SUCH_USER') {
-          console.log('no such email');
-          this.noSuchEmail = true;
+          console.log('no such user');
+          this.loginError.noSuchUser = this.loginForm.value.email;
         } else if (res.message === 'WRONG_PASSWORD') {
           console.log('wrong password');
-          this.wrongPassword = true;
+          this.loginError.wrongPassword = this.loginForm.value.pass;
         } else {
           window.alert('Unhandled error!');
         }
