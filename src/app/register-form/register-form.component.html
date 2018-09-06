@@ -36,7 +36,7 @@
       Date of Birth
     </span>
     <span class="input-group-field">
-      <input type="date" class="input-long" [ngClass]="{ 'in-focus': inFocus.dateOfBirth }" formControlName="dateOfBirth" (focus)="inFocus.dateOfBirth = true" (blur)="inFocus.dateOfBirth = false" />
+      <input type="date" class="input-long" [ngClass]="{ 'in-focus': inFocus.dateOfBirth }" formControlName="dateOfBirth" (focus)="inFocus.dateOfBirth = true" (blur)="inFocus.dateOfBirth = false" max="{{currentDate}}" />
     </span>
     <span class="error-messages" [ngClass]="{ 'visible': formChecked }">
       <span *ngIf="registerForm.controls['dateOfBirth'].hasError('required')" class="error-message">

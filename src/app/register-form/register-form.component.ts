@@ -19,6 +19,7 @@ export class RegisterFormComponent implements OnInit {
     pass: false,
     rePass: false
   };
+  currentDate: string;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -27,6 +28,7 @@ export class RegisterFormComponent implements OnInit {
 
   ngOnInit() {
     this.createRegisterForm();
+    this.setCurrentDate();
   }
 
   createRegisterForm() {
@@ -39,6 +41,19 @@ export class RegisterFormComponent implements OnInit {
       pass: [null, [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,12}$/)]],
       rePass: [null, Validators.required]
     });
+  }
+
+  setCurrentDate() {
+    const date = new Date();
+
+    let year = String(date.getFullYear()),
+      month = String(date.getMonth() + 1),
+      day = String(date.getDate());
+
+    month = month.length === 1 ? '0' + month : month;
+    day = day.length === 1 ? '0' + day : day;
+
+    this.currentDate = year + '-' + month + '-' + day;
   }
 
   onRegister() {
