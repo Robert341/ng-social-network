@@ -16,8 +16,8 @@ export class LoginFormComponent implements OnInit {
     pass: false
   };
   loginError = {
-    noSuchUser: '',
-    wrongPassword: ''
+    noSuchUser: null,
+    wrongPassword: null
   };
 
   constructor(private _formBuilder: FormBuilder, private _httpService: HttpService) { }

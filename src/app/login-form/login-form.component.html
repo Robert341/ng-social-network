@@ -6,7 +6,7 @@
     <span class="input-group-field">
       <input type="text" class="input-long" [ngClass]="{ 'in-focus': inFocus.email }" formControlName="email" (focus)="inFocus.email = true" (blur)="inFocus.email = false" />
     </span>
-    <span class="error-messages" [ngClass]="{ 'visible': (loginForm.controls['email'].invalid || loginError.noSuchUser === loginForm.value.email) && (loginForm.controls['email'].touched || formChecked) }">
+    <span class="error-messages" [ngClass]="{ 'visible': (loginForm.controls['email'].invalid || loginError.noSuchUser === loginForm.value.email) && loginForm.controls['email'].touched }">
       <span class="error-message" *ngIf="loginForm.controls['email'].hasError('required')">
         E-mail can't be empty!
       </span>
@@ -25,7 +25,7 @@
     <span class="input-group-field">
       <input type="password" class="input-long" [ngClass]="{ 'in-focus': inFocus.pass }" formControlName="pass" (focus)="inFocus.pass = true" (blur)="inFocus.pass = false" />
     </span>
-    <span class="error-messages" [ngClass]="{ 'visible': (loginForm.controls['pass'].invalid || loginError.wrongPassword === loginForm.value.pass) && (loginForm.controls['pass'].touched || formChecked) }">
+    <span class="error-messages" [ngClass]="{ 'visible': (loginForm.controls['pass'].invalid || loginError.wrongPassword === loginForm.value.pass) && loginForm.controls['pass'].touched }">
       <span class="error-message" *ngIf="loginForm.controls['pass'].hasError('required')">
         Password can't be empty!
       </span>
