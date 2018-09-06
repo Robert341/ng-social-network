@@ -1,0 +1,69 @@
+.input-group {
+  margin: 10px 0;
+}
+
+.input-group-label {
+  display: inline-block;
+  font-weight: bold;
+  width: 100px;
+  text-align: center;
+}
+.input-group-field {
+  display: inline-block;
+  width: 225px;
+  text-align: center;
+}
+
+.input-long {
+  width: 200px;
+  height: 20px;
+  background-color: #e6e6e6;
+  outline: none;
+  border: 1px solid #bfbfbf;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.in-focus {
+  background-color: white;
+  box-shadow: 0 5px 5px gray;
+}
+
+.error-messages {
+  opacity: 0;
+}
+
+.visible {
+   opacity: 1;
+   transition: opacity 0.5s;
+ }
+
+.error-message {
+  display: inline-block;
+  width: 170px;
+  border: 1px solid pink;
+  border-radius: 4px;
+  background-color: pink;
+  padding: 3px;
+  text-align: center;
+  color: #900000;
+}
+
+.login-btn {
+  width: 90px;
+  height: 35px;
+  background-color: #e6e6e6;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.login-btn:hover {
+  filter: brightness(90%);
+}
+.login-btn:active {
+  filter: brightness(80%);
+  width: 88px;
+  height: 33px;
+}

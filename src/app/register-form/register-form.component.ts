@@ -21,10 +21,7 @@ export class RegisterFormComponent implements OnInit {
   };
   currentDate: string;
 
-  constructor(
-    private _formBuilder: FormBuilder,
-    private _httpService: HttpService
-  ) { }
+  constructor(private _formBuilder: FormBuilder, private _httpService: HttpService) { }
 
   ngOnInit() {
     this.createRegisterForm();
@@ -73,4 +70,5 @@ export class RegisterFormComponent implements OnInit {
       });
     }
   }
+
 }
