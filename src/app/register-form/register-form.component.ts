@@ -14,6 +14,7 @@ export class RegisterFormComponent implements OnInit {
   inFocus = {
     firstName: false,
     lastName: false,
+    dateOfBirth: false,
     email: false,
     pass: false,
     rePass: false
