@@ -34,9 +34,9 @@
 }
 
 .visible {
-   opacity: 1;
-   transition: opacity 0.5s;
- }
+  opacity: 1;
+  transition: opacity 0.5s;
+}
 
 .error-message {
   display: inline-block;

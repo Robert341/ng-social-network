@@ -10,11 +10,8 @@
       <span *ngIf="loginForm.controls['email'].hasError('required')" class="error-message">
         E-mail can't be empty!
       </span>
-       <span *ngIf="loginForm.controls['email'].hasError('pattern')" class="error-message">
+      <span *ngIf="loginForm.controls['email'].hasError('pattern')" class="error-message">
         Incorrect e-mail!
-      </span>
-      <span *ngIf="noSuchEmail" class="error-message">
-        No such e-mail!
       </span>
     </span>
   </div>
