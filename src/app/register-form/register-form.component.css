@@ -41,6 +41,10 @@
   box-shadow: 0 5px 5px gray;
 }
 
+.error-messages {
+  opacity: 0;
+}
+
 .error-message {
   display: inline-block;
   width: 170px;
@@ -50,6 +54,11 @@
   padding: 3px;
   text-align: center;
   color: #900000;
+}
+
+.visible {
+  opacity: 1;
+  transition: opacity 0.5s;
 }
 
 .register-btn {

@@ -6,7 +6,7 @@
     <span class="input-group-field">
        <input type="text" class="input-long" [ngClass]="{ 'in-focus': inFocus.firstName }" formControlName="firstName" (focus)="inFocus.firstName = true" (blur)="inFocus.firstName = false" />
     </span>
-    <span *ngIf="formChecked">
+    <span class="error-messages" [ngClass]="{ 'visible': formChecked }">
       <span *ngIf="registerForm.controls['firstName'].hasError('required')" class="error-message">
         First name can't be empty!
       </span>
@@ -22,7 +22,7 @@
     <span class="input-group-field">
       <input type="text" class="input-long" [ngClass]="{ 'in-focus': inFocus.lastName }" formControlName="lastName" (focus)="inFocus.lastName = true" (blur)="inFocus.lastName = false" />
     </span>
-    <span *ngIf="formChecked">
+    <span class="error-messages" [ngClass]="{ 'visible': formChecked }">
       <span *ngIf="registerForm.controls['lastName'].hasError('required')" class="error-message">
         Last name can't be empty!
       </span>
@@ -38,7 +38,7 @@
     <span class="input-group-field">
       <input type="date" class="input-long" [ngClass]="{ 'in-focus': inFocus.dateOfBirth }" formControlName="dateOfBirth" (focus)="inFocus.dateOfBirth = true" (blur)="inFocus.dateOfBirth = false" />
     </span>
-    <span *ngIf="formChecked">
+    <span class="error-messages" [ngClass]="{ 'visible': formChecked }">
       <span *ngIf="registerForm.controls['dateOfBirth'].hasError('required')" class="error-message">
         Date can't be empty!
       </span>
@@ -60,7 +60,7 @@
           </label>
       </span>
     </span>
-    <span *ngIf="formChecked">
+    <span class="error-messages" [ngClass]="{ 'visible': formChecked }">
       <span *ngIf="registerForm.controls['gender'].hasError('required')" class="error-message">
         Gender can't be empty!
       </span>
@@ -73,7 +73,7 @@
     <span class="input-group-field">
       <input type="text" class="input-long" [ngClass]="{ 'in-focus': inFocus.email }" formControlName="email" (focus)="inFocus.email = true" (blur)="inFocus.email = false" />
     </span>
-    <span *ngIf="formChecked">
+    <span class="error-messages" [ngClass]="{ 'visible': formChecked }">
       <span *ngIf="registerForm.controls['email'].hasError('required')" class="error-message">
         E-mail can't be empty!
       </span>
@@ -89,7 +89,7 @@
     <span class="input-group-field">
       <input type="password" class="input-long" [ngClass]="{ 'in-focus': inFocus.pass }" formControlName="pass" (focus)="inFocus.pass = true" (blur)="inFocus.pass = false" />
     </span>
-    <span *ngIf="formChecked">
+    <span class="error-messages" [ngClass]="{ 'visible': formChecked }">
       <span *ngIf="registerForm.controls['pass'].hasError('required')" class="error-message">
         Password can't be empty!
       </span>
@@ -105,7 +105,7 @@
     <span class="input-group-field">
       <input type="password" class="input-long" [ngClass]="{ 'in-focus': inFocus.rePass }" formControlName="rePass" (focus)="inFocus.rePass = true" (blur)="inFocus.rePass = false" />
     </span>
-    <span *ngIf="formChecked">
+    <span class="error-messages" [ngClass]="{ 'visible': formChecked }">
       <span *ngIf="registerForm.controls['rePass'].hasError('required')" class="error-message">
         Repeat password!
       </span>
