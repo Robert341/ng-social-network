@@ -45,6 +45,11 @@
   opacity: 0;
 }
 
+.visible {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
 .error-message {
   display: inline-block;
   width: 170px;
@@ -54,11 +59,6 @@
   padding: 3px;
   text-align: center;
   color: #900000;
-}
-
-.visible {
-  opacity: 1;
-  transition: opacity 0.5s;
 }
 
 .register-btn {
