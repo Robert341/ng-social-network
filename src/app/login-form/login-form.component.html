@@ -6,16 +6,16 @@
     <span class="input-group-field">
       <input type="text" class="input-long" [ngClass]="{ 'in-focus': inFocus.email }" formControlName="email" (focus)="inFocus.email = true" (blur)="inFocus.email = false" />
     </span>
-    <span class="error-messages" [ngClass]="{ 'visible': loginForm.controls['email'].invalid && (loginForm.controls['email'].touched || formChecked) }">
-      <span *ngIf="loginForm.controls['email'].hasError('required')" class="error-message">
+    <span class="error-messages" [ngClass]="{ 'visible': (loginForm.controls['email'].invalid || loginError.noSuchUser === loginForm.value.email) && (loginForm.controls['email'].touched || formChecked) }">
+      <span class="error-message" *ngIf="loginForm.controls['email'].hasError('required')">
         E-mail can't be empty!
       </span>
-      <span *ngIf="loginForm.controls['email'].hasError('pattern')" class="error-message">
+      <span class="error-message" *ngIf="loginForm.controls['email'].hasError('pattern')">
         Incorrect e-mail!
       </span>
-    </span>
-    <span class="error-messages error-message" [ngClass]="{ 'visible': loginError.noSuchUser === loginForm.value.email && loginForm.controls['email'].valid }">
-      No such user!
+      <span class="error-message" *ngIf="loginError.noSuchUser === loginForm.value.email && loginForm.controls['email'].valid">
+        No such user!
+      </span>
     </span>
   </div>
   <div class="input-group">
