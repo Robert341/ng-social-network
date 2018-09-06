@@ -2,6 +2,18 @@
   margin: 10px 0;
 }
 
+.input-group-label {
+  display: inline-block;
+  font-weight: bold;
+  width: 100px;
+  text-align: center;
+}
+.input-group-field {
+  display: inline-block;
+  width: 225px;
+  text-align: center;
+}
+
 .input-long {
   width: 200px;
   height: 20px;
@@ -14,7 +26,7 @@
 
 .input-radio-box {
   display: inline-block;
-  width: 100px;
+  padding: 0 15px;
   text-align: center;
 }
 
@@ -30,17 +42,22 @@
 }
 
 .error-message {
+  display: inline-block;
+  width: 170px;
   border: 1px solid pink;
   border-radius: 4px;
   background-color: pink;
-  color: #900000;
   padding: 5px;
+  text-align: center;
+  color: #900000;
 }
 
 .register-btn-box {
   display: inline-block;
   text-align: center;
   padding: 10px 100px;
+
+  border: 1px solid red;
 }
 
 .register-btn {

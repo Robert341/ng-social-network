@@ -1,8 +1,11 @@
 <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
   <div class="input-group">
-    <label>First name
-      <input type="text" class="input-long" [ngClass]="{ 'in-focus': inFocus.firstName }" formControlName="firstName" (focus)="inFocus.firstName = true" (blur)="inFocus.firstName = false" />
-    </label>
+    <span class="input-group-label">
+      First name
+    </span>
+    <span class="input-group-field">
+       <input type="text" class="input-long" [ngClass]="{ 'in-focus': inFocus.firstName }" formControlName="firstName" (focus)="inFocus.firstName = true" (blur)="inFocus.firstName = false" />
+    </span>
     <span *ngIf="formChecked">
       <span *ngIf="registerForm.controls['firstName'].hasError('required')" class="error-message">
         First name can't be empty!
@@ -13,9 +16,12 @@
     </span>
   </div>
   <div class="input-group">
-    <label>Last name
+    <span class="input-group-label">
+      Last name
+    </span>
+    <span class="input-group-field">
       <input type="text" class="input-long" [ngClass]="{ 'in-focus': inFocus.lastName }" formControlName="lastName" (focus)="inFocus.lastName = true" (blur)="inFocus.lastName = false" />
-    </label>
+    </span>
     <span *ngIf="formChecked">
       <span *ngIf="registerForm.controls['lastName'].hasError('required')" class="error-message">
         Last name can't be empty!
@@ -26,9 +32,12 @@
     </span>
   </div>
   <div class="input-group">
-    <label>Date of birth
+    <span class="input-group-label">
+      Date of Birth
+    </span>
+    <span class="input-group-field">
       <input type="date" class="input-long" [ngClass]="{ 'in-focus': inFocus.dateOfBirth }" formControlName="dateOfBirth" (focus)="inFocus.dateOfBirth = true" (blur)="inFocus.dateOfBirth = false" />
-    </label>
+    </span>
     <span *ngIf="formChecked">
       <span *ngIf="registerForm.controls['dateOfBirth'].hasError('required')" class="error-message">
         Date can't be empty!
@@ -36,17 +45,21 @@
     </span>
   </div>
   <div class="input-group">
-    Gender
-    <div class="input-radio-box">
+    <span class="input-group-label">
+      Gender
+    </span>
+    <span class="input-group-field">
+      <span class="input-radio-box">
          <label>Male
            <input type="radio" class="input-radio" value="male" formControlName="gender" />
          </label>
-    </div>
-    <div class="input-radio-box">
-        <label>Female
-          <input type="radio" class="input-radio" value="female" formControlName="gender" />
-        </label>
-    </div>
+      </span>
+      <span class="input-radio-box">
+          <label>Female
+            <input type="radio" class="input-radio" value="female" formControlName="gender" />
+          </label>
+      </span>
+    </span>
     <span *ngIf="formChecked">
       <span *ngIf="registerForm.controls['gender'].hasError('required')" class="error-message">
         Gender can't be empty!
@@ -54,9 +67,12 @@
     </span>
   </div>
   <div class="input-group">
-    <label>E-mail
+    <span class="input-group-label">
+      E-mail
+    </span>
+    <span class="input-group-field">
       <input type="text" class="input-long" [ngClass]="{ 'in-focus': inFocus.email }" formControlName="email" (focus)="inFocus.email = true" (blur)="inFocus.email = false" />
-    </label>
+    </span>
     <span *ngIf="formChecked">
       <span *ngIf="registerForm.controls['email'].hasError('required')" class="error-message">
         E-mail can't be empty!
@@ -67,9 +83,12 @@
     </span>
   </div>
   <div class="input-group">
-    <label>Password
+    <span class="input-group-label">
+      Password
+    </span>
+    <span class="input-group-field">
       <input type="password" class="input-long" [ngClass]="{ 'in-focus': inFocus.pass }" formControlName="pass" (focus)="inFocus.pass = true" (blur)="inFocus.pass = false" />
-    </label>
+    </span>
     <span *ngIf="formChecked">
       <span *ngIf="registerForm.controls['pass'].hasError('required')" class="error-message">
         Password can't be empty!
@@ -80,9 +99,12 @@
     </span>
   </div>
   <div class="input-group">
-    <label>Re-Enter
+    <span class="input-group-label">
+      Re-enter
+    </span>
+    <span class="input-group-field">
       <input type="password" class="input-long" [ngClass]="{ 'in-focus': inFocus.rePass }" formControlName="rePass" (focus)="inFocus.rePass = true" (blur)="inFocus.rePass = false" />
-    </label>
+    </span>
     <span *ngIf="formChecked">
       <span *ngIf="registerForm.controls['rePass'].hasError('required')" class="error-message">
         Repeat password!
@@ -92,7 +114,10 @@
       </span>
     </span>
   </div>
-  <div class="register-btn-box">
-    <button type="submit" class="register-btn">Sign Up</button>
+  <div class="input-group">
+    <span class="input-group-label"></span>
+    <span class="input-group-field">
+      <button type="submit" class="register-btn">Sign Up</button>
+    </span>
   </div>
 </form>
