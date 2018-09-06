@@ -25,9 +25,12 @@
     <span class="input-group-field">
       <input type="password" class="input-long" [ngClass]="{ 'in-focus': inFocus.pass }" formControlName="pass" (focus)="inFocus.pass = true" (blur)="inFocus.pass = false" />
     </span>
-    <span class="error-messages" [ngClass]="{ 'visible': loginForm.controls['pass'].invalid && (loginForm.controls['pass'].touched || formChecked) }">
-      <span *ngIf="loginForm.controls['pass'].hasError('required')" class="error-message">
+    <span class="error-messages" [ngClass]="{ 'visible': (loginForm.controls['pass'].invalid || loginError.wrongPassword === loginForm.value.pass) && (loginForm.controls['pass'].touched || formChecked) }">
+      <span class="error-message" *ngIf="loginForm.controls['pass'].hasError('required')">
         Password can't be empty!
+      </span>
+       <span class="error-message" *ngIf="loginError.wrongPassword === loginForm.value.pass && loginForm.controls['pass'].valid">
+         Wrong password!
       </span>
     </span>
   </div>
