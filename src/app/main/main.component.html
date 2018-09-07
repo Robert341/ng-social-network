@@ -1,6 +1,6 @@
-<div class="loading-toggle {{pageLoading ? 'visible' : 'hidden' }}">
+<div *ngIf="pageLoading">
   <app-loading></app-loading>
 </div>
-<div class="loading-toggle {{!pageLoading ? 'visible' : 'hidden' }}">
+<div *ngIf="!pageLoading">
   main works!
 </div>
