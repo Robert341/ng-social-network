@@ -1,0 +1,16 @@
+header {
+  margin-bottom: 30px;
+}
+
+.left-block, .central-block, .right-block {
+  float: left;
+}
+.left-block, .right-block, .central-block {
+  width: 30%;
+}
+
+
+
+h1 {
+  text-align: center;
+}

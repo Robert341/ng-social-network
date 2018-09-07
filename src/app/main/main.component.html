@@ -2,5 +2,19 @@
   <app-loading></app-loading>
 </div>
 <div *ngIf="!pageLoading">
-  main works!
+  <header>
+    <app-header></app-header>
+  </header>
+
+  <main>
+    <section class="left-block">
+      <h1>Left block</h1>
+    </section>
+    <section class="central-block">
+      <h1>Center block</h1>
+    </section>
+    <section class="right-block">
+      <h1>Right block</h1>
+    </section>
+  </main>
 </div>
