@@ -7,10 +7,10 @@
        <input type="text" class="input-long" [ngClass]="{ 'in-focus': inFocus.firstName }" formControlName="firstName" (focus)="inFocus.firstName = true" (blur)="inFocus.firstName = false" />
     </span>
     <span class="error-messages" [ngClass]="{ 'visible': registerForm.controls['firstName'].invalid && (registerForm.controls['firstName'].touched || formChecked) }">
-      <span *ngIf="registerForm.controls['firstName'].hasError('required')" class="error-message">
+      <span class="error-message" *ngIf="registerForm.controls['firstName'].hasError('required')">
         First name can't be empty!
       </span>
-      <span *ngIf="registerForm.controls['firstName'].hasError('pattern')" class="error-message">
+      <span class="error-message" *ngIf="registerForm.controls['firstName'].hasError('pattern')">
         Incorrect first name!
       </span>
     </span>
@@ -23,10 +23,10 @@
       <input type="text" class="input-long" [ngClass]="{ 'in-focus': inFocus.lastName }" formControlName="lastName" (focus)="inFocus.lastName = true" (blur)="inFocus.lastName = false" />
     </span>
     <span class="error-messages" [ngClass]="{ 'visible': registerForm.controls['lastName'].invalid && (registerForm.controls['lastName'].touched || formChecked) }">
-      <span *ngIf="registerForm.controls['lastName'].hasError('required')" class="error-message">
+      <span class="error-message" *ngIf="registerForm.controls['lastName'].hasError('required')">
         Last name can't be empty!
       </span>
-      <span *ngIf="registerForm.controls['lastName'].hasError('pattern')" class="error-message">
+      <span class="error-message" *ngIf="registerForm.controls['lastName'].hasError('pattern')">
         Incorrect last name!
       </span>
     </span>
@@ -39,7 +39,7 @@
       <input type="date" class="input-long" [ngClass]="{ 'in-focus': inFocus.dateOfBirth }" formControlName="dateOfBirth" (focus)="inFocus.dateOfBirth = true" (blur)="inFocus.dateOfBirth = false" max="{{currentDate}}" />
     </span>
     <span class="error-messages" [ngClass]="{ 'visible': registerForm.controls['dateOfBirth'].invalid && (registerForm.controls['dateOfBirth'].touched || formChecked) }">
-      <span *ngIf="registerForm.controls['dateOfBirth'].hasError('required')" class="error-message">
+      <span class="error-message" *ngIf="registerForm.controls['dateOfBirth'].hasError('required')">
         Date can't be empty!
       </span>
     </span>
@@ -61,7 +61,7 @@
       </span>
     </span>
     <span class="error-messages" [ngClass]="{ 'visible': registerForm.controls['gender'].invalid && formChecked }">
-      <span *ngIf="registerForm.controls['gender'].hasError('required')" class="error-message">
+      <span class="error-message" *ngIf="registerForm.controls['gender'].hasError('required')">
         Gender can't be empty!
       </span>
     </span>
@@ -73,12 +73,15 @@
     <span class="input-group-field">
       <input type="text" class="input-long" [ngClass]="{ 'in-focus': inFocus.email }" formControlName="email" (focus)="inFocus.email = true" (blur)="inFocus.email = false" />
     </span>
-    <span class="error-messages" [ngClass]="{ 'visible': registerForm.controls['email'].invalid && (registerForm.controls['email'].touched || formChecked) }">
-      <span *ngIf="registerForm.controls['email'].hasError('required')" class="error-message">
+    <span class="error-messages" [ngClass]="{ 'visible': (registerForm.controls['email'].invalid || registerError.emailRegistered === registerForm.value.email) && (registerForm.controls['email'].touched || formChecked) }">
+      <span class="error-message" *ngIf="registerForm.controls['email'].hasError('required')">
         E-mail can't be empty!
       </span>
-      <span *ngIf="registerForm.controls['email'].hasError('pattern')" class="error-message">
+      <span class="error-message" *ngIf="registerForm.controls['email'].hasError('pattern')">
         Incorrect e-mail!
+      </span>
+      <span class="error-message" *ngIf="registerError.emailRegistered === registerForm.value.email && registerForm.controls['email'].valid">
+        E-mail registered!
       </span>
     </span>
   </div>
@@ -90,10 +93,10 @@
       <input type="password" class="input-long" [ngClass]="{ 'in-focus': inFocus.pass }" formControlName="pass" (focus)="inFocus.pass = true" (blur)="inFocus.pass = false" />
     </span>
     <span class="error-messages" [ngClass]="{ 'visible': registerForm.controls['pass'].invalid && (registerForm.controls['pass'].touched || formChecked) }">
-      <span *ngIf="registerForm.controls['pass'].hasError('required')" class="error-message">
+      <span class="error-message" *ngIf="registerForm.controls['pass'].hasError('required')">
         Password can't be empty!
       </span>
-      <span *ngIf="registerForm.controls['pass'].hasError('pattern')" class="error-message">
+      <span class="error-message" *ngIf="registerForm.controls['pass'].hasError('pattern')">
         Incorrect password!
       </span>
     </span>
@@ -106,10 +109,10 @@
       <input type="password" class="input-long" [ngClass]="{ 'in-focus': inFocus.rePass }" formControlName="rePass" (focus)="inFocus.rePass = true" (blur)="inFocus.rePass = false" />
     </span>
     <span class="error-messages" [ngClass]="{ 'visible': (registerForm.controls['rePass'].invalid || registerForm.value.pass !== registerForm.value.rePass) && (registerForm.controls['rePass'].touched || formChecked) }">
-      <span *ngIf="registerForm.controls['rePass'].hasError('required')" class="error-message">
+      <span class="error-message" *ngIf="registerForm.controls['rePass'].hasError('required')">
         Repeat password!
       </span>
-      <span *ngIf="registerForm.value.pass !== registerForm.value.rePass && !registerForm.controls['rePass'].hasError('required')" class="error-message">
+      <span class="error-message" *ngIf="registerForm.value.pass !== registerForm.value.rePass && !registerForm.controls['rePass'].hasError('required')">
         Passwords don't match!
       </span>
     </span>

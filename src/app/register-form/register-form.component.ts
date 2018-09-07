@@ -20,6 +20,9 @@ export class RegisterFormComponent implements OnInit {
     rePass: false
   };
   formChecked = false;
+  registerError = {
+    emailRegistered: null
+  };
 
   constructor(private _formBuilder: FormBuilder, private _httpService: HttpService) { }
 
@@ -63,7 +66,7 @@ export class RegisterFormComponent implements OnInit {
         } else if (res.message === 'SERVER_ERROR') {
           window.alert('Server error! Could not register user.');
         } else if (res.message === 'EMAIL_REGISTERED') {
-          window.alert('User with this e-mail already exists!');
+          this.registerError.emailRegistered = this.registerForm.value.email;
         } else {
           window.alert('Unhandled error!');
         }
