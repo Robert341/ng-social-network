@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from '../http.service';
 
@@ -23,6 +23,8 @@ export class RegisterFormComponent implements OnInit {
   registerError = {
     emailRegistered: null
   };
+
+  @Output() toggleFormEvent = new EventEmitter();
 
   constructor(private _formBuilder: FormBuilder, private _httpService: HttpService) { }
 
@@ -54,6 +56,10 @@ export class RegisterFormComponent implements OnInit {
     day = day.length === 1 ? '0' + day : day;
 
     this.currentDate = year + '-' + month + '-' + day;
+  }
+
+  toggleForm() {
+    this.toggleFormEvent.emit(true);
   }
 
   onRegister() {

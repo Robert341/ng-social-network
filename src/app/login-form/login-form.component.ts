@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from '../http.service';
 
@@ -20,6 +20,8 @@ export class LoginFormComponent implements OnInit {
     wrongPassword: null
   };
 
+  @Output() toggleFormEvent = new EventEmitter();
+
   constructor(private _formBuilder: FormBuilder, private _httpService: HttpService) { }
 
   ngOnInit() {
@@ -31,6 +33,10 @@ export class LoginFormComponent implements OnInit {
       email: [null, [Validators.required, Validators.pattern(/^[a-zA-Z0-9_.-]+@+[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{2,4}$/)]],
       pass: [null, Validators.required]
     });
+  }
+
+  toggleForm() {
+    this.toggleFormEvent.emit(false);
   }
 
   onLogin() {

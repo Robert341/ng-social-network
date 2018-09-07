@@ -8,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class LandingComponent implements OnInit {
 
   pageLoading = false;
+  logRegToggle = true;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleForm(e) {
+    this.logRegToggle = e;
   }
 
 }
