@@ -10,11 +10,11 @@ import { HttpService } from '../http.service';
 export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup;
-  formChecked = false;
   inFocus = {
     email: false,
     pass: false
   };
+  formChecked = false;
   loginError = {
     noSuchUser: null,
     wrongPassword: null

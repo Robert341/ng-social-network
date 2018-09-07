@@ -10,7 +10,7 @@ import { HttpService } from '../http.service';
 export class RegisterFormComponent implements OnInit {
 
   registerForm: FormGroup;
-  formChecked = false;
+  currentDate: string;
   inFocus = {
     firstName: false,
     lastName: false,
@@ -19,7 +19,7 @@ export class RegisterFormComponent implements OnInit {
     pass: false,
     rePass: false
   };
-  currentDate: string;
+  formChecked = false;
 
   constructor(private _formBuilder: FormBuilder, private _httpService: HttpService) { }
 
