@@ -3,3 +3,17 @@
   justify-content: center;
   padding: 100px 0;
 }
+
+.loading-toggle {
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 1s;
+}
