@@ -11,6 +11,8 @@ export class HttpService {
   // urls
   private _registerUrl = '/api/register';
   private _loginUrl = '/api/login';
+  private _logoutUrl = '/api/logout';
+  private _getUserUrl = '/api/get_user';
 
   constructor(private _http: Http) { }
 
@@ -21,6 +23,16 @@ export class HttpService {
   }
   login(user: User) {
     return this._http.post(this._loginUrl, JSON.stringify(user), this.options)
+      .map((response: Response) => response.json());
+  }
+
+  logout() {
+    return this._http.get(this._logoutUrl)
+      .map((response: Response) => response.json());
+  }
+
+  getUser() {
+    return this._http.get(this._getUserUrl)
       .map((response: Response) => response.json());
   }
 }

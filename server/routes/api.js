@@ -92,6 +92,21 @@ router.get('/logout', function(req, res) {
   }
 });
 
+router.get('/get_user', function(req, res) {
+  const user_id = req.session.user_id;
+
+  if(user_id === undefined) {
+    res.json({ isLogged: false, message: NO_SESSION });
+  } else {
+    User.findById(user_id).exec(function(err, user) {
+      if(err) {
+        res.json({ isLogged: false, message: SERVER_ERROR });
+      } else {
+        res.json({ isLogged: true, user: user });
+      }
+    });
+  }
+});
 
 // development routes
 router.use('/dev', dev);
