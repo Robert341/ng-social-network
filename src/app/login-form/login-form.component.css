@@ -67,3 +67,16 @@
   width: 88px;
   height: 33px;
 }
+
+.form-toggle {
+  font-weight: bold;
+}
+
+.form-toggle-btn {
+  font-weight: bold;
+  color: skyblue;
+  cursor: pointer;
+}
+.form-toggle-btn:hover {
+  filter: brightness(80%);
+}
