@@ -30,7 +30,9 @@
 }
 
 .error-messages {
+  display: inline-block;
   opacity: 0;
+  width: 180px;
 }
 
 .visible {
