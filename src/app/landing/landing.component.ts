@@ -28,7 +28,7 @@ export class LandingComponent implements OnInit {
       } else if (res.message === 'SERVER_ERROR') {
         window.alert('Server error! Could not get the session.');
       } else if (res.message === 'NO_SESSION') {
-        this.pageLoading = false;
+        //this.pageLoading = false;
       } else {
         window.alert('Unhandled error!');
       }
