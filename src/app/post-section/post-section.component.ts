@@ -12,4 +12,8 @@ export class PostSectionComponent implements OnInit {
   ngOnInit() {
   }
 
+  publish() {
+
+  }
+
 }

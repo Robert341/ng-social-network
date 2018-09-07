@@ -1,3 +1,8 @@
-<p>
-  post-section works!
-</p>
+<div class="post-form">
+  <div class="input-section">
+    <textarea ref="textArea" class="input-area" placeholder="What's new?" onChange={this.change.bind(this)}></textarea>
+  </div>
+  <div class="button-section">
+    <button type="button" class="btn btn-info publish-btn" (click)="publish()">Publish</button>
+  </div>
+</div>
