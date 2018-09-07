@@ -7,9 +7,13 @@
   </header>
 
   <main>
-    <section>
-      <app-login-form *ngIf="logRegToggle" (toggleFormEvent)="toggleForm($event)"></app-login-form>
-      <app-register-form *ngIf="!logRegToggle" (toggleFormEvent)="toggleForm($event)"></app-register-form>
+    <section class="form">
+      <div *ngIf="logRegToggle">
+        <app-login-form (toggleFormEvent)="toggleForm($event)"></app-login-form>
+      </div>
+      <div *ngIf="!logRegToggle">
+        <app-register-form (toggleFormEvent)="toggleForm($event)"></app-register-form>
+      </div>
     </section>
   </main>
 </div>

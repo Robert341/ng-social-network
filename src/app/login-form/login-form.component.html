@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+<form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
   <div class="input-group">
     <span class="input-group-label">
       E-mail
@@ -43,7 +43,7 @@
   <div class="input-group">
     <span class="input-group-label"></span>
     <span class="input-group-field">
-      <span class="form-toggle">First time here?</span> <span class="form-toggle-btn" (click)="toggleForm()">Sign up!</span>
+      <span class="form-toggle">First time here?</span><span class="form-toggle-btn" (click)="toggleForm()"> Sign up!</span>
     </span>
   </div>
 </form>
