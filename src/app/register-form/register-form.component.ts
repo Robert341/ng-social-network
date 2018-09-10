@@ -68,7 +68,7 @@ export class RegisterFormComponent implements OnInit {
     if (this.registerForm.valid && this.registerForm.value.pass === this.registerForm.value.rePass) {
       this._httpService.register(this.registerForm.value).subscribe(res => {
         if (res.success === true) {
-          window.location.replace('/main');
+          window.location.replace('/feed');
         } else if (res.message === 'SERVER_ERROR') {
           window.alert('Server error! Could not register user.');
         } else if (res.message === 'EMAIL_REGISTERED') {

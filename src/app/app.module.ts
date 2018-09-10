@@ -12,7 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { LoadingComponent } from './loading/loading.component';
-import { MainComponent } from './main/main.component';
+import { FeedComponent } from './feed/feed.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PostSectionComponent } from './post-section/post-section.component';
 
@@ -27,7 +27,7 @@ import { HttpService } from './http.service';
     HeaderComponent,
     RegisterFormComponent,
     LoginFormComponent,
-    MainComponent,
+    FeedComponent,
     LoadingComponent,
     ProfileComponent,
     PostSectionComponent

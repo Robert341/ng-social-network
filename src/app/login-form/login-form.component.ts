@@ -45,7 +45,7 @@ export class LoginFormComponent implements OnInit {
     if (this.loginForm.valid) {
       this._httpService.login(this.loginForm.value).subscribe(res => {
         if (res.success === true) {
-          window.location.replace('/main');
+          window.location.replace('/feed');
         } else if (res.message === 'SERVER_ERROR') {
           window.alert('Server error! Could not log in.');
         } else if (res.message === 'NO_SUCH_USER') {

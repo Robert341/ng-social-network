@@ -24,7 +24,7 @@ export class LandingComponent implements OnInit {
   getSession() {
     this._httpService.getUser().subscribe(res => {
       if (res.isLogged === true) {
-        window.location.replace('/main');
+        window.location.replace('/feed');
       } else if (res.message === 'SERVER_ERROR') {
         window.alert('Server error! Could not get the session.');
       } else if (res.message === 'NO_SESSION') {
