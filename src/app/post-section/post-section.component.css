@@ -1,0 +1,62 @@
+.post-form {
+  height: 150px;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+  margin: 15px;
+}
+
+.input-section {
+  height: 100px;
+}
+
+.input-section .input-area {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  resize: none;
+  outline: none;
+  padding: 20px;
+}
+
+.button-section {
+  position: relative;
+  height: 50px;
+  border-top: 1px solid #edeef0;
+  padding: 15px;
+}
+
+.attach-image-input {
+  display: none;
+}
+
+.attach-image-icon, .attach-video-icon, .attach-audio-icon {
+  height: 18px;
+  -webkit-transition: filter 0.2s; /* For Safari 3.1 to 6.0 */
+  transition: filter 0.2s;
+  -o-user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+  cursor: pointer;
+}
+
+.attach-image-icon {
+  margin-left: 5px;
+}
+
+.attach-video-icon, .attach-audio-icon {
+  margin-left: 15px;
+}
+
+.attach-image-icon:hover, .attach-video-icon:hover, .attach-audio-icon:hover {
+  filter: brightness(80%);
+}
+
+.publish-btn {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+}

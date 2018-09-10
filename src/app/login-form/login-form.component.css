@@ -1,3 +1,10 @@
+.login-form {
+  background-color: white;
+  padding: 0 20px 10px 100px;
+  border-radius: 10px;
+  box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+}
+
 .input-group {
   margin: 10px 0;
 }
@@ -54,7 +61,8 @@
 .login-btn {
   width: 90px;
   height: 35px;
-  background-color: #e6e6e6;
+  background-color: #3e88a4;
+  color: white;
   outline: none;
   border: none;
   border-radius: 10px;
