@@ -45,11 +45,13 @@ router.post('/register', function(req, res) {
           if (err) {
             res.json({ success: false, message: SERVER_ERROR });
           } else {
-            const userFolder = path.join(__dirname, '../../src/assets/img/users/' + user._id);
-
-            fs.mkdirSync(userFolder);
-            fs.mkdirSync(userFolder + '/profile');
-            fs.mkdirSync(userFolder + '/wall');
+            // users images, videos and audios
+            const imagesFolder = path.join(__dirname, '../../src/assets/images/users/' + user._id),
+              videosFolder = path.join(__dirname, '../../src/assets/videos/users/' + user._id),
+              audiosFolder = path.join(__dirname, '../../src/assets/audios/users/' + user._id);
+            fs.mkdirSync(imagesFolder);
+            fs.mkdirSync(videosFolder);
+            fs.mkdirSync(audiosFolder);
 
             req.session.user_id = user._id;
             res.json({ success: true });
