@@ -1,19 +1,22 @@
-<div class="publish-form">
+<form class="publish-form" [formGroup]="publishForm" (ngSubmit)="publish()">
   <div class="publish-body">
     <textarea class="publish-text-area" [class.publish-text-area-in-focus]="inFocus" (focus)="inFocus = true" (blur)="inFocus = false"></textarea>
   </div>
   <div class="publish-footer">
-    <span class="attach-image-section">
-      <img class="attach-image-btn" src="../../assets/img/publish/attach_image.png" draggable="false" />
+    <span class="attach-images-section">
+      <span [hidden]="true"><input type="file" id="attach_images_input" (change)="changeAttachedFiles('images', $event)" multiple /></span>
+      <img class="attach-images-btn" src="../../assets/img/publish/attach_images.png" (click)="activateInput('attach_images_input')" draggable="false" />
     </span>
-    <span class="attach-video-section">
-      <img class="attach-video-btn" src="../../assets/img/publish/attach_video.png" draggable="false" />
+    <span class="attach-videos-section">
+       <span [hidden]="true"><input type="file" id="attach_videos_input" (change)="changeAttachedFiles('videos', $event)" multiple /></span>
+      <img class="attach-videos-btn" src="../../assets/img/publish/attach_videos.png" (click)="activateInput('attach_videos_input')" draggable="false" />
     </span>
-    <span class="attach-audio-section">
-      <img class="attach-audio-btn" src="../../assets/img/publish/attach_audio.png" draggable="false" />
+    <span class="attach-audios-section">
+       <span [hidden]="true"><input type="file" id="attach_audios_input" (change)="changeAttachedFiles('audios', $event)" multiple /></span>
+      <img class="attach-audios-btn" src="../../assets/img/publish/attach_audios.png" (click)="activateInput('attach_audios_input')" draggable="false" />
     </span>
     <span class="publish-btn-section">
-      <button class="publish-btn">Publish</button>
+      <button type="submit" class="publish-btn">Publish</button>
     </span>
   </div>
-</div>
+</form>
