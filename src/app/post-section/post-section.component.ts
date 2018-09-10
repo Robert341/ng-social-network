@@ -34,8 +34,11 @@ export class PostSectionComponent implements OnInit {
   }
 
   changeAttachedFiles(filesName, e) {
-    this.publishForm.value[filesName] = this.publishForm.value[filesName].concat(e.target.files);
-    console.log(this.publishForm.value[filesName]);
+    const files = e.target.files, temp = [];
+    for (let i = 0; i < files.length; i++) {
+      temp.push(files[i]);
+    }
+    this.publishForm.value[filesName] = this.publishForm.value[filesName].concat(temp);
   }
 
   publish() {

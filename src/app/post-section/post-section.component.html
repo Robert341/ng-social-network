@@ -4,15 +4,15 @@
   </div>
   <div class="publish-footer">
     <span class="attach-images-section">
-      <span [hidden]="true"><input type="file" id="attach_images_input" (change)="changeAttachedFiles('images', $event)" multiple /></span>
+      <span [hidden]="true"><input type="file" id="attach_images_input" (change)="changeAttachedFiles('images', $event)" accept="image/*" multiple  /></span>
       <img class="attach-images-btn" src="../../assets/img/publish/attach_images.png" (click)="activateInput('attach_images_input')" draggable="false" />
     </span>
     <span class="attach-videos-section">
-       <span [hidden]="true"><input type="file" id="attach_videos_input" (change)="changeAttachedFiles('videos', $event)" multiple /></span>
+       <span [hidden]="true"><input type="file" id="attach_videos_input" (change)="changeAttachedFiles('videos', $event)" accept="video/*" multiple /></span>
       <img class="attach-videos-btn" src="../../assets/img/publish/attach_videos.png" (click)="activateInput('attach_videos_input')" draggable="false" />
     </span>
     <span class="attach-audios-section">
-       <span [hidden]="true"><input type="file" id="attach_audios_input" (change)="changeAttachedFiles('audios', $event)" multiple /></span>
+       <span [hidden]="true"><input type="file" id="attach_audios_input" (change)="changeAttachedFiles('audios', $event)" accept="audio/*" multiple /></span>
       <img class="attach-audios-btn" src="../../assets/img/publish/attach_audios.png" (click)="activateInput('attach_audios_input')" draggable="false" />
     </span>
     <span class="publish-btn-section">
