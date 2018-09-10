@@ -11,7 +11,7 @@ import * as $ from 'jquery';
 export class PostSectionComponent implements OnInit {
 
   publishForm: FormGroup;
-  inFocus = false;
+  messageInFocus = false;
 
   constructor(private _formBuilder: FormBuilder, private _httpService: HttpService) { }
 
@@ -22,7 +22,7 @@ export class PostSectionComponent implements OnInit {
 
   createPublishForm() {
     this.publishForm = this._formBuilder.group({
-      message: [],
+      message: [''],
       images: [[]],
       videos: [[]],
       audios: [[]]
@@ -42,7 +42,17 @@ export class PostSectionComponent implements OnInit {
   }
 
   publish() {
-    console.log(this.publishForm.value);
+    if (
+      this.publishForm.value.message.length !== 0 ||
+      this.publishForm.value.images.length !== 0 ||
+      this.publishForm.value.videos.length !== 0 ||
+      this.publishForm.value.audios.length !== 0
+    ) {
+      console.log(this.publishForm.value);
+      this._httpService.publishPost(this.publishForm.value).subscribe(res => {
+        console.log(res);
+      });
+    }
   }
 
 }

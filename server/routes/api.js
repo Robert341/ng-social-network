@@ -6,7 +6,8 @@ const router = require('express').Router(),
   async = require('async');
 
 // models
-const User = require('../models/user');
+const User = require('../models/user'),
+  Post = require('../models/post');
 
 const db = process.env.DB_LOCAL;
 mongoose.Promise = global.Promise;
@@ -108,6 +109,32 @@ router.get('/get_user', function(req, res) {
       }
     });
   }
+});
+
+router.post('/publish_post', function(req, res) {
+  var newPost = new Post();
+  newProduct.name = req.body.name;
+  newProduct.price = req.body.price;
+  newProduct.minSize = req.body.minSize;
+  newProduct.maxSize = req.body.maxSize;
+  newProduct.season = req.body.season;
+  newProduct.description =  req.body.description;
+  newProduct.date = Date.now();
+  newProduct.save(function(err, product){
+    if(err){
+      res.json({ success: false });
+    } else {
+      var photo = req.files.photo;
+      var dir = path.join(__dirname,'../../src/assets/img/products/');
+      photo.mv(dir + product._id + '.png', function(err){
+        if(err){
+          res.json({ success: false });
+        } else {
+          res.json({ success: true, product: product });
+        }
+      });
+    }
+  });
 });
 
 // development routes

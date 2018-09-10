@@ -1,6 +1,6 @@
 <form class="publish-form" [formGroup]="publishForm" (ngSubmit)="publish()">
   <div class="publish-body">
-    <textarea class="publish-text-area" [class.publish-text-area-in-focus]="inFocus" (focus)="inFocus = true" (blur)="inFocus = false"></textarea>
+    <textarea class="publish-text-area" [class.publish-text-area-in-focus]="messageInFocus" (focus)="messageInFocus = true" (blur)="messageInFocus = false" formControlName="message"></textarea>
   </div>
   <div class="publish-footer">
     <span class="attach-images-section">
