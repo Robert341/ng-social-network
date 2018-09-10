@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostSectionComponent implements OnInit {
 
+  inFocus = false;
+
   constructor() { }
 
   ngOnInit() {
