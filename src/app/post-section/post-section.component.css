@@ -59,6 +59,26 @@
 .attach-video-btn,
 .attach-audio-btn {
   height: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  -webkit-transition: filter 0.25s;
+  -moz-transition: filter 0.25s;
+  -ms-transition: filter 0.25s;
+  -o-transition: filter 0.25s;
+  transition: filter 0.25s;
+}
+.attach-image-btn:hover,
+.attach-video-btn:hover,
+.attach-audio-btn:hover {
+  filter: brightness(70%);
+  -webkit-transition: filter 0.25s;
+  -moz-transition: filter 0.25s;
+  -ms-transition: filter 0.25s;
+  -o-transition: filter 0.25s;
+  transition: filter 0.25s;
 }
 
 .publish-btn-section {
@@ -75,6 +95,10 @@
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .publish-btn:hover {
   filter: brightness(90%);
