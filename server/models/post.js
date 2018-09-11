@@ -2,8 +2,8 @@ const mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 const postSchema = new Schema({
-  userId: String,
-  dateAndTime: Number,
+  userID: String,
+  publishDate: Number,
   message: String,
   images: [],
   videos: [],

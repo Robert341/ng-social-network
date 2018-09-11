@@ -8,32 +8,39 @@ export class HttpService {
   headers = new Headers({ 'Content-Type': 'application/json' });
   options = new RequestOptions({ headers: this.headers });
 
-  // urls
-  private _registerUrl = '/api/register';
-  private _loginUrl = '/api/login';
-  private _logoutUrl = '/api/logout';
-  private _getUserUrl = '/api/get_user';
-  private _publishPostUrl = '/api/publish_post';
+  // URIs
+  private _registerURI = '/api/register';
+  private _loginURI = '/api/login';
+  private _logoutURI = '/api/logout';
+  private _getUserURI = '/api/get_user';
+  private _deleteUserURI = '/api/delete_user';
+  private _publishPostURI = '/api/publish_post';
 
   constructor(private _http: Http) { }
 
   // functions
   register(user: User) {
-    return this._http.post(this._registerUrl, JSON.stringify(user), this.options)
+    return this._http.post(this._registerURI, JSON.stringify(user), this.options)
       .map((response: Response) => response.json());
   }
+
   login(user: User) {
-    return this._http.post(this._loginUrl, JSON.stringify(user), this.options)
+    return this._http.post(this._loginURI, JSON.stringify(user), this.options)
       .map((response: Response) => response.json());
   }
 
   logout() {
-    return this._http.get(this._logoutUrl)
+    return this._http.get(this._logoutURI)
       .map((response: Response) => response.json());
   }
 
   getUser() {
-    return this._http.get(this._getUserUrl)
+    return this._http.get(this._getUserURI)
+      .map((response: Response) => response.json());
+  }
+
+  deleteUser(user_id: string) {
+    return this._http.post(this._deleteUserURI, JSON.stringify({ user_id: user_id }), this.options)
       .map((response: Response) => response.json());
   }
 
@@ -43,7 +50,8 @@ export class HttpService {
     postData.append('images', post.images);
     postData.append('videos', post.videos);
     postData.append('audios', post.audios);
-    return this._http.post(this._publishPostUrl, postData)
+    return this._http.post(this._publishPostURI, postData)
       .map((response: Response) => response.json());
   }
+
 }

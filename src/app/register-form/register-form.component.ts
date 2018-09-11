@@ -41,7 +41,8 @@ export class RegisterFormComponent implements OnInit {
       gender: [null, Validators.required],
       email: [null, [Validators.required, Validators.pattern(/^[a-zA-Z0-9_.-]+@+[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{2,4}$/)]],
       pass: [null, [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,12}$/)]],
-      rePass: [null, Validators.required]
+      rePass: [null, Validators.required],
+      regDate: []
     });
   }
 
@@ -66,6 +67,7 @@ export class RegisterFormComponent implements OnInit {
     this.formChecked = true;
 
     if (this.registerForm.valid && this.registerForm.value.pass === this.registerForm.value.rePass) {
+      this.registerForm.value.regDate = Date.now();
       this._httpService.register(this.registerForm.value).subscribe(res => {
         if (res.success === true) {
           window.location.replace('/feed');

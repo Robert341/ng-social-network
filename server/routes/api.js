@@ -34,6 +34,7 @@ router.post('/register', function(req, res) {
   newUser.gender = req.body.gender;
   newUser.email = req.body.email;
   newUser.pass = req.body.pass;
+  newUser.regDate = req.body.regDate;
   newUser.profPicAddress = 'blank_prof_pic.png';
 
   User.find({ email: newUser.email }).exec(function(err, users) {
@@ -46,7 +47,7 @@ router.post('/register', function(req, res) {
           if (err) {
             res.json({ success: false, message: SERVER_ERROR });
           } else {
-            // users images, videos and audios
+            // create users files folders (for images, videos and audios)
             var imagesFolder = path.join(__dirname, '../../dist/assets/images/users/' + user._id),
               videosFolder = path.join(__dirname, '../../dist/assets/videos/users/' + user._id),
               audiosFolder = path.join(__dirname, '../../dist/assets/audios/users/' + user._id);
@@ -118,10 +119,39 @@ router.get('/get_user', function(req, res) {
     });
   }
 });
+
+router.post('/delete_user', function(req, res) {
+  const user_id = req.body.user_id;
+
+  User.findByIdAndDelete(user_id, function(err, deletedUser) {
+    if (err) {
+      res.json({ success: false, message: SERVER_ERROR });
+    } else {
+      // delete users files folders (for images, videos and audios)
+      var imagesFolder = path.join(__dirname, '../../dist/assets/images/users/' + deletedUser._id),
+        videosFolder = path.join(__dirname, '../../dist/assets/videos/users/' + deletedUser._id),
+        audiosFolder = path.join(__dirname, '../../dist/assets/audios/users/' + deletedUser._id);
+      fs.removeSync(imagesFolder);
+      fs.removeSync(videosFolder);
+      fs.removeSync(audiosFolder);
+
+      // dev
+      imagesFolder = path.join(__dirname, '../../src/assets/images/users/' + deletedUser._id);
+      videosFolder = path.join(__dirname, '../../src/assets/videos/users/' + deletedUser._id);
+      audiosFolder = path.join(__dirname, '../../src/assets/audios/users/' + deletedUser._id);
+      fs.removeSync(imagesFolder);
+      fs.removeSync(videosFolder);
+      fs.removeSync(audiosFolder);
+
+      req.session.user_id = undefined;
+      res.json({ success: true });
+    }
+  });
+});
 /*
 router.post('/publish_post', function(req, res) {
   var newPost = new Post();
-  newProduct.name = req.body.name;
+  newPost.name = req.body.name;
   newProduct.price = req.body.price;
   newProduct.minSize = req.body.minSize;
   newProduct.maxSize = req.body.maxSize;

@@ -1,7 +1,7 @@
 export class Post {
   _id: string;
-  userId: string;
-  dateAndTime: number;
+  userID: string;
+  publishDate: number;
   message: string;
   images: string[];
   videos: string[];
