@@ -49,9 +49,11 @@ export class PostSectionComponent implements OnInit {
       this.publishForm.value.audios.length !== 0
     ) {
       console.log(this.publishForm.value);
-      this._httpService.publishPost(this.publishForm.value).subscribe(res => {
+      /*this._httpService.publishPost(this.publishForm.value).subscribe(res => {
         console.log(res);
-      });
+      });*/
+    } else {
+      console.log('Empty!');
     }
   }
 
