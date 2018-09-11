@@ -47,9 +47,17 @@ router.post('/register', function(req, res) {
             res.json({ success: false, message: SERVER_ERROR });
           } else {
             // users images, videos and audios
-            const imagesFolder = path.join(__dirname, '../../src/assets/images/users/' + user._id),
-              videosFolder = path.join(__dirname, '../../src/assets/videos/users/' + user._id),
-              audiosFolder = path.join(__dirname, '../../src/assets/audios/users/' + user._id);
+            var imagesFolder = path.join(__dirname, '../../dist/assets/images/users/' + user._id),
+              videosFolder = path.join(__dirname, '../../dist/assets/videos/users/' + user._id),
+              audiosFolder = path.join(__dirname, '../../dist/assets/audios/users/' + user._id);
+            fs.mkdirSync(imagesFolder);
+            fs.mkdirSync(videosFolder);
+            fs.mkdirSync(audiosFolder);
+
+            // dev
+            imagesFolder = path.join(__dirname, '../../src/assets/images/users/' + user._id);
+            videosFolder = path.join(__dirname, '../../src/assets/videos/users/' + user._id);
+            audiosFolder = path.join(__dirname, '../../src/assets/audios/users/' + user._id);
             fs.mkdirSync(imagesFolder);
             fs.mkdirSync(videosFolder);
             fs.mkdirSync(audiosFolder);
@@ -110,7 +118,7 @@ router.get('/get_user', function(req, res) {
     });
   }
 });
-
+/*
 router.post('/publish_post', function(req, res) {
   var newPost = new Post();
   newProduct.name = req.body.name;
@@ -136,7 +144,7 @@ router.post('/publish_post', function(req, res) {
     }
   });
 });
-
+*/
 // development routes
 router.use('/dev', dev);
 

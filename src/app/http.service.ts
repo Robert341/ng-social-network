@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { User } from './user';
-import { Post } from './post';
 
 @Injectable()
 export class HttpService {
@@ -38,12 +37,12 @@ export class HttpService {
       .map((response: Response) => response.json());
   }
 
-  publishPost(post: Post) {
+  publishPost(post) {
     const postData = new FormData();
-    prod.append('message', post.message);
-    prod.append('images', post.images);
-    prod.append('videos', post.videos);
-    prod.append('audios', post.audios);
+    postData.append('message', post.message);
+    postData.append('images', post.images);
+    postData.append('videos', post.videos);
+    postData.append('audios', post.audios);
     return this._http.post(this._publishPostUrl, postData)
       .map((response: Response) => response.json());
   }

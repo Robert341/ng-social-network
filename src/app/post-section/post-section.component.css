@@ -44,21 +44,20 @@
 .attach-audios-section,
 .publish-btn-section {
   display: table-cell;
-  height: 40px;
+  height: 30px;
   vertical-align: middle;
 }
 
 .attach-images-section,
 .attach-videos-section,
 .attach-audios-section {
-  height: 20px;
   padding: 0 10px;
 }
 
 .attach-images-btn,
 .attach-videos-btn,
 .attach-audios-btn {
-  height: 20px;
+  height: 15px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -87,12 +86,12 @@
 }
 
 .publish-btn {
-  padding: 10px 15px;
+  padding: 8px 10px;
   background-color: #3e88a4;
   color: white;
   outline: none;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
   -webkit-user-select: none;
